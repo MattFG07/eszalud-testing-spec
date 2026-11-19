@@ -12,6 +12,10 @@ public class Paciente {
         if (documento == null || documento.isBlank()) {
             throw new IllegalArgumentException("El documento es obligatorio");
         }
+        if (nombre == null || nombre.isBlank()) {
+            throw new IllegalArgumentException("Los nombres son obligatorios");
+        }
+
 
         this.documento = documento;
         this.nombre = nombre;
