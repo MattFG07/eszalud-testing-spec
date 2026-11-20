@@ -12,6 +12,9 @@ public class Doctor {
         if (documento == null || documento.isBlank()) {
             throw new IllegalArgumentException("El documento es obligatorio");
         }
+        if (nombres == null || nombres.isBlank()) {
+            throw new IllegalArgumentException("Los nombres son obligatorios");
+        }
 
         this.documento = documento;
         this.nombres = nombres;
