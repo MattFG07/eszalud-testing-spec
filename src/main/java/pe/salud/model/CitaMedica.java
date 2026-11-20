@@ -17,6 +17,9 @@ public class CitaMedica {
         if (doctor == null || doctor.isBlank()) {
             throw new IllegalArgumentException("El identificador del doctor es obligatorio");
         }
+        if (especialidad == null || especialidad.isBlank()) {
+            throw new IllegalArgumentException("El identificador de la especialidad es obligatorio");
+        }
 
         this.paciente = paciente;
         this.doctor = doctor;
