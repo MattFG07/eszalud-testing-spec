@@ -24,12 +24,22 @@ public class CitaMedica {
             throw new IllegalArgumentException("La fecha y hora de la cita son obligatorias");
         }
 
-        this.paciente = paciente;
-        this.doctor = doctor;
-        this.especialidad = especialidad;
+        this.paciente = validarCampoObligatorio(paciente, "El identificador del paciente es obligatorio");
+        this.doctor = validarCampoObligatorio(doctor, "El identificador del doctor es obligatorio");
+        this.especialidad = validarCampoObligatorio(especialidad, "El identificador de la especialidad es obligatorio");
+        if (fechaHora == null) {
+            throw new IllegalArgumentException("La fecha y hora de la cita son obligatorias");
+        }
         this.fechaHora = fechaHora;
         this.motivo = motivo;
         this.estado = (estado != null) ? estado : EstadoCita.PROGRAMADA;
+    }
+
+    private String validarCampoObligatorio(String valor, String mensaje) {
+        if (valor == null || valor.isBlank()) {
+            throw new IllegalArgumentException(mensaje);
+        }
+        return valor;
     }
 
     public String getPaciente() { return paciente; }
